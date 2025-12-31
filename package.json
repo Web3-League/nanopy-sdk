@@ -1,0 +1,67 @@
+{
+  "name": "nanopy-sdk",
+  "version": "2.0.2",
+  "description": "TypeScript SDK for NanoPy blockchain - Gaming focused L1 chain with EVM compatibility",
+  "main": "dist/index.js",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "files": [
+    "dist/",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "tsc && npm run build:esm",
+    "build:esm": "tsc --module ES2020 --outDir dist/esm && echo {\"type\":\"module\"} > dist/esm/package.json",
+    "clean": "rimraf dist",
+    "prepublishOnly": "npm run clean && npm run build",
+    "test": "node dist/examples/basic.js"
+  },
+  "keywords": [
+    "blockchain",
+    "ethereum",
+    "evm",
+    "gaming",
+    "nanopy",
+    "web3",
+    "crypto",
+    "layer1",
+    "sdk",
+    "typescript",
+    "nft",
+    "erc20",
+    "erc721",
+    "erc1155",
+    "smart-contracts"
+  ],
+  "author": "NanoPy Team",
+  "license": "MIT",
+  "dependencies": {
+    "js-sha3": "^0.9.3",
+    "rlp": "^3.0.0",
+    "secp256k1": "^5.0.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.10.0",
+    "@types/secp256k1": "^4.0.7",
+    "rimraf": "^5.0.0",
+    "typescript": "^5.3.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nanopy/nanopy-sdk"
+  },
+  "homepage": "https://github.com/nanopy/nanopy-sdk#readme",
+  "bugs": {
+    "url": "https://github.com/nanopy/nanopy-sdk/issues"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}
